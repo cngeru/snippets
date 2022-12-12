@@ -1,4 +1,3 @@
-// 
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import dayjs = require("dayjs");
@@ -14,7 +13,6 @@ export const DeleteOldBookings = functions.pubsub.schedule('every day 00:00').ti
 async function deleteQueryBatch(query:any, resolve:any) {
   const snapshot = await query.get();
   const batchSize = snapshot.size;
-  console.log(`To delete ${batchSize}`);
   if (batchSize === 0) {
     resolve();
     return;
